@@ -20,12 +20,12 @@ public interface PaymentsRepo extends JpaRepository <Payments, Long> {
 
     @Transactional
     @Modifying (clearAutomatically = true)
-    @Query(value = "SELECT * FROM moneytracker.payments WHERE CATEGORIES = :categories AND customer_id = :customerId order by purchase_date desc Limit 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM moneytrackerapp.payments WHERE CATEGORIES = :categories AND customer_id = :customerId order by purchase_date desc Limit 1", nativeQuery = true)
     ArrayList<Payments> findLastPayment (@Param("customerId") long customerId, @Param("categories") String categories);
 
     @Transactional
     @Modifying (clearAutomatically = true)
-    @Query(value = "SELECT * FROM moneytracker.payments WHERE CATEGORIES = :categories AND customer_id = :customerId order by purchase_date desc Limit 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM moneytrackerapp.payments WHERE CATEGORIES = :categories AND customer_id = :customerId order by purchase_date desc Limit 1", nativeQuery = true)
     ArrayList<Payments> findLastIncome (@Param("customerId") long customerId, @Param("categories") String categories);
 
     @Transactional
